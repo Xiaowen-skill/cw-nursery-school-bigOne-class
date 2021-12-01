@@ -2,16 +2,18 @@
 
 基础配置
 
+​    /* 配置好github SSh */
+
 1. 克隆项目
 
    ```js
-   git clone https://github.com/Xiaowen-skill/cw-nursery-school-bigOne-class.git
+   git clone git@github.com:Xiaowen-skill/cw-nursery-school-bigOne-class.git
    ```
 
 2. 拉取远程alpha分支
 
    ```js
-   git fetch https://github.com/Xiaowen-skill/cw-nursery-school-bigOne-class.git alpha:alpha
+   git fetch git@github.com:Xiaowen-skill/cw-nursery-school-bigOne-class.git alpha:alpha
    ```
 
 3. 切换alpha分支
