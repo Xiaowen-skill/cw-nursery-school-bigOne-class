@@ -2,7 +2,7 @@
 
 基础配置
 
-​    /* 配置好github SSh */
+​ /_ 配置好 github SSh _/
 
 1. 克隆项目
 
@@ -10,19 +10,19 @@
    git clone git@github.com:Xiaowen-skill/cw-nursery-school-bigOne-class.git
    ```
 
-2. 拉取远程alpha分支
+2. 拉取远程 alpha 分支
 
    ```js
    git fetch git@github.com:Xiaowen-skill/cw-nursery-school-bigOne-class.git alpha:alpha
    ```
 
-3. 切换alpha分支
+3. 切换 alpha 分支
 
    ```js
    git checkout alpha
    ```
 
-4. 基于alpha分支下创建自己分支开发
+4. 基于 alpha 分支下创建自己分支开发
 
    ```js
    git checkout -b fea/name
@@ -43,4 +43,6 @@
    git push origin alpha
    ```
 
-   
+打开配置
+
+下载 uni-app
