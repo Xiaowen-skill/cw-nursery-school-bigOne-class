@@ -1,6 +1,6 @@
 <template>
 	<view class="book">
-		<u-navbar :title="bookDetail.name" @leftClick="leftClick">
+		<u-navbar :title="bookDetail.name" @leftClick="leftClick" safeAreaInsetTop>
 		</u-navbar>
 		<view class="content" v-html="bookDetail.txt">
 		</view>
