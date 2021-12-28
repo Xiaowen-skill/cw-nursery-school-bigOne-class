@@ -1,10 +1,25 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [ //pages数组中第一项表示应用启动页
+		{
+			"path": "pages/story/story",
+			"style": {
+				"navigationBarTitleText": "阅读"
+			}
+		},
+		{
+			"path": "pages/story/book",
+			"style": {
+				"navigationBarTitleText": "书",
+				"navigationStyle": "custom", // 隐藏系统导航栏
+				"navigationBarTextStyle": "white" 
+			}
+		},
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页",
-				"navigationStyle":"custom"
+				"navigationStyle": "custom", // 隐藏系统导航栏
+				"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
 			}
 		},
 		{
@@ -12,12 +27,55 @@
 			"style": {
 				"navigationBarTitleText": "个人中心"
 			}
+		},
+		{
+			"path": "pages/music/music",
+			"style": {
+				"navigationBarTitleText": "音乐"
+			}
+		},
+		{
+			"path": "pages/time/time",
+			"style": {
+				"navigationBarTitleText": "时光"
+			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#fff",
+		"backgroundColor": "#fff"
+	},
+	// 底部导航栏
+	"tabBar": {
+		"color": "#333",
+		"selectedColor": "#DD524D",
+		"backgroundColor": "#fff",
+		"list": [{
+				"pagePath": "pages/story/story",
+				"iconPath": "static/icon/story.png",
+				"selectedIconPath": "static/icon/story_active.png",
+				"text": "阅读"
+			},
+			{
+				"pagePath": "pages/music/music",
+				"iconPath": "static/icon/music.png",
+				"selectedIconPath": "static/icon/music_active.png",
+				"text": "音乐"
+			},
+			{
+				"pagePath": "pages/time/time",
+				"iconPath": "static/icon/time.png",
+				"selectedIconPath": "static/icon/time_active.png",
+				"text": "时光"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/icon/user.png",
+				"selectedIconPath": "static/icon/user_active.png",
+				"text": "个人中心"
+			}
+		]
 	}
 }
