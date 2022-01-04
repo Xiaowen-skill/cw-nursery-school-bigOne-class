@@ -20,7 +20,7 @@
 		height: 100%;
 		width: 100%;
 		font-size: 28rpx;
-		font-family: PingFangSC-Medium, PingFang SC;
+		font-family: Source Han Sans CN-Regular, Source Han Sans CN;
 		font-weight: 400;
 		color: #333333;
 	}

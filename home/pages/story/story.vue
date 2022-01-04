@@ -8,10 +8,14 @@
 		<view class="swiper-box">
 			<swiper :current="swiperCurrent" @animationfinish="animationfinish" class="swiper" style="height: 100%;">
 				<swiper-item class="swiper-item" v-for="(item, index) in tabsList" :key="item.id">
-					<!-- 书架 -->
 					<scroll-view scroll-y style="height: 100%;width: 100%;">
-						<view class="book-list" v-if="swiperCurrent === 0">
-							<view class="book-item" v-for="(item,index) in bookList" :key="item.id" @click="goToBook(item.id)">
+						<!-- 推荐 -->
+						<view class="book-recommend" v-if="swiperCurrent === 0">
+							<book-recommend :bookList="bookList"></book-recommend>
+						</view>
+						<!-- 书架 -->
+						<view class="book-list" v-if="swiperCurrent === 1 && isShow">
+							<view class="book-item" v-for="(item,index) in bookList" :key="item.id" @click="changeBook(item)">
 								<view class="book-pic">
 									<image :src="item.src" mode=""></image>
 								</view>
@@ -20,14 +24,19 @@
 								</view>
 							</view>
 						</view>
-						<view class="books" v-if="swiperCurrent === 1">
-							书单
+						<view class="book-show" v-else-if="swiperCurrent === 1 && !isShow">
+							<u-transition :show="!isShow" mode="fade-down" duration="400">
+								<book-show :bookInfo="bookInfo" @close="close"></book-show>
+							</u-transition>
+						</view>
+						<!-- 书单 -->	
+						<view class="books" v-if="swiperCurrent === 2">
+							<my-books :bookList="bookList"></my-books>
 						</view>
 					</scroll-view>
 				</swiper-item>
 			</swiper>
 		</view>
-		
 	</view>
 </template>
 
@@ -37,14 +46,26 @@
 	import two from 'static/story/two.jpeg'
 	import three from 'static/story/three.jpeg'
 	import four from 'static/story/four.jpeg'
+	import MyBooks from '@/components/MyBooks.vue'
+	import BookShow from '@/components/BookShow.vue'
+	import BookRecommend from '@/components/BookRecommend.vue'
 	export default {
+		components:{
+			MyBooks,
+			BookShow,
+			BookRecommend
+		},
 		data() {
 			return {
+				isShow:true,
 				tabsList: [{
 					id: 0,
-					name: "书架"
+					name: "推荐"
 				}, {
 					id: 1,
+					name: "书架"
+				}, {
+					id: 2,
 					name: "书单"
 				}],
 				current: 0, // tabs组件的current值，表示当前活动的tab选项
@@ -52,25 +73,39 @@
 				bookList:[{
 					id:0,
 					name:"酒不醉猴猴自醉",
-					src:one
+					src:two,
+					rate:5,
+					autor:"今何在",
+					intor:"这天紫霞在天边站的久了，当她往回走的时候她想冷寂已经附在她的身上了，于是她加快了往回赶，想回到落霞宫那炉火边的梦里去。"
 				},{
 					id:1,
 					name:"花果山-这么多年，最爱的还是那只松鼠",
-					src:two
+					src:one,
+					rate:5,
+					autor:"今何在",
+					intor:"很久很久以前，没有山，没有树，什么都没有，只有一片大海，无边的大海。"
 				},{
 					id:2,
 					name:"落日余晖",
-					src:three
+					src:three,
+					rate:4.5,
+					autor:"小文杀",
+					intor:"他一直坐在球场的旁边，脸上没有一丝情绪。远处的足球突然飞到了他的脚下，跑来三个男孩。"
 				},{
 					id:3,
 					name:"记忆之花",
-					src:four
+					src:four,
+					rate:4.5,
+					autor:"小文杀",
+					intor:"你们知道吗，昨晚在十教那里，死了一个人。”“听说了，早上五点多就听到几辆警车的声音，现在很多警察在那里呢。"
 				}],
+				bookInfo:{},
 			}
 		},
 		methods: {
 			// tabs通知swiper切换
 			tabsChange(e) {
+				this.isShow = true
 				this.swiperCurrent = e.index;
 			},
 
@@ -80,12 +115,13 @@
 				this.swiperCurrent = current;
 				this.current = current;
 			},
-			// 查看书
-			goToBook(id){
-				uni.navigateTo({
-					url:`book?id=${id}`
-				})
-			}
+			close(isShow){
+				this.isShow = isShow
+			},
+			changeBook(item) {
+				this.isShow = false
+				this.bookInfo = item
+			},
 		}
 	}
 </script>
@@ -98,29 +134,13 @@
 		height: 100%;
 		.tabs {
 			margin: 0 40rpx;
-
-			// tabs栏居中
-			/deep/ .u-tabs {
-				border-bottom: 1px solid #eee;
-
-				.uni-scroll-view {
-					width: auto;
-				}
-
-				.u-tabs__wrapper__nav__item {
-					padding: 0;
-					margin-right: 40rpx;
-					font-weight: 700;
-				}
-
-				.u-tabs__wrapper__nav__line {
-					display: none;
-				}
-			}
 		}
 		.swiper-box{
 			flex: 1;
-			margin: 20rpx 40rpx 0;
+			background-color: #f7f7f7;
+			.swiper{
+				margin: 20rpx 40rpx 0;
+			}
 		}
 	}
 	.book-list {
@@ -148,6 +168,7 @@
 			.book-txt{
 				width: 200rpx;
 				height: 76rpx;
+				display: box;
 				display:-webkit-box;
 				-webkit-box-orient:vertical;
 				-webkit-line-clamp:2;//控制行数

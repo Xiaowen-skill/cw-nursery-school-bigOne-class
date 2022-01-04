@@ -1,6 +1,23 @@
+// 引入图片
+import one from 'static/story/one.jpeg'
+import two from 'static/story/two.jpeg'
+import three from 'static/story/three.jpeg'
+import four from 'static/story/four.jpeg'
 const bookList = [{
 		id: 0,
 		name: "酒不醉猴猴自醉",
+		rate: 5,
+		autor: "今何在",
+		src:two,
+		catalogList:[{
+			id:0,
+			name:"酒不醉猴猴自醉",
+			contentList:[{
+				id:0,
+				title:"往事"
+			}]
+		}],
+		intor: "这天紫霞在天边站的久了，当她往回走的时候她想冷寂已经附在她的身上了，于是她加快了往回赶，想回到落霞宫那炉火边的梦里去。",
 		txt: `
 <p>这天紫霞在天边站的久了，当她往回走的时候她想冷寂已经附在她的身上了，于是她加快了往回赶，想回到落霞宫那炉火边的梦里去。</p>
 <p>蟠桃园里本无星辰照耀，却怎还这么亮？</p>
@@ -273,6 +290,18 @@ const bookList = [{
 	{
 		id: 1,
 		name: "花果山-这么多年，最爱的还是那只松鼠",
+		rate: 5,
+		autor: "今何在",
+		src:one,
+		catalogList:[{
+			id:0,
+			name:"花果山",
+			contentList:[{
+				id:0,
+				title:"一片叶子"
+			}]
+		}],
+		intor: "很久很久以前，没有山，没有树，什么都没有，只有一片大海，无边的大海。",
 		txt: `
 <p>“很久很久以前，没有山，没有树，什么都没有，只有一片大海，无边的大海。” </p>
 <p>“连老爷爷都没有么？”松鼠问。 </p>
@@ -429,6 +458,18 @@ const bookList = [{
 	{
 		id: 2,
 		name: "落日余晖",
+		rate: 4.5,
+		autor: "小文杀",
+		src:three,
+		catalogList:[{
+			id:0,
+			name:"落日余晖",
+			contentList:[{
+				id:0,
+				title:"假如"
+			}]
+		}],
+		intor: "他一直坐在球场的旁边，脸上没有一丝情绪。远处的足球突然飞到了他的脚下，跑来三个男孩。",
 		txt: `
 <p>他一直坐在球场的旁边，脸上没有一丝情绪。远处的足球突然飞到了他的脚下，跑来三个男孩。"傻子，你怎么一直坐在这，来跟我们去踢球。"他抬头看了看，一个高高的男孩插着腰站在他面前。</p>
 <p>他低下头没有言语，旁边两个男孩开始拨弄他的长发。"傻子，叫你呢，没听见？"高高男孩有点气急败坏。他仍然没有答应，只用手护了护自己的头，让长发又遮住了眼睛。</p>
@@ -448,6 +489,51 @@ const bookList = [{
 	{
 		id: 3,
 		name: "记忆之花",
+		rate: 4,
+		autor: "小文杀",
+		src:four,
+		catalogList:[{
+			id:0,
+			name:"空无之界",
+			contentList:[{
+				id:0,
+				title:"引子 雨夜"
+			},{
+				id:1,
+				title:"第一章 校园杀人案"
+			},{
+				id:2,
+				title:"第二章 神秘311"
+			},{
+				id:3,
+				title:"第三章 交易"
+			},{
+				id:4,
+				title:"第四章 死去的人与黑猫"
+			},{
+				id:5,
+				title:"第五章 月光下的美人"
+			},{
+				id:6,
+				title:"第六章 旧人？重逢"
+			},{
+				id:7,
+				title:"第七章 幸存者与死亡猎场"
+			},{
+				id:8,
+				title:"第八章 罪之镜"
+			}]
+		},{
+			id:1,
+			name:"海之涯",
+		},{
+			id:2,
+			name:"第四世界",
+		},{
+			id:3,
+			name:"人之篇 往事",
+		}],
+		intor: "你们知道吗，昨晚在十教那里，死了一个人。”“听说了，早上五点多就听到几辆警车的声音，现在很多警察在那里呢。",
 		txt: `
 <b>第一章 校园杀人案</b>
 <br />

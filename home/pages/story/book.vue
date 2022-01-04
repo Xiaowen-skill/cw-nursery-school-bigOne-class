@@ -2,7 +2,8 @@
 	<view class="book">
 		<u-navbar :title="bookDetail.name" @leftClick="leftClick" :safeAreaInsetTop="true" :fixed="true" :placeholder="true">
 		</u-navbar>
-		<view class="content" v-html="bookDetail.txt">
+		<view class="content">
+			<u-parse :content="bookDetail.txt" :selectable="true"></u-parse>
 		</view>
 	</view>
 </template>
@@ -42,8 +43,10 @@
 		text-indent: 2em;
 		padding-bottom: 40rpx;
 		color: #333;
+		font-size: 28rpx;
+		line-height: 1.6;
 		/deep/ p{
-			margin-bottom: 10rpx;
+			font-family: PingFang SC;
 		}
 	}
 	
